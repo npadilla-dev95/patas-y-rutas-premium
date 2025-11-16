@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐾 Formulario - Patas & Rutas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background-color: #d5e8dc;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 50px 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        /* Badge premium */
+        .premium-badge {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        /* Header con mensaje de pago exitoso */
+        .success-banner {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .success-banner p {
+            color: #065f46;
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            color: #2d3748;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .subtitle {
+            color: #4a5568;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .info-pills {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .section-title {
+            color: #2d3748;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #2d3748;
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .required {
+            color: #10b981;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            color: #2d3748;
+            background: white;
+            transition: all 0.2s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            line-height: 1.5;
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232d3748' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 30px 20px;
+            background: #f0fdf4;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 2px solid #10b981;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 3px solid #e2e8f0;
+            border-top: 3px solid #10b981;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: #065f46;
+            font-size: 15px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .loading-subtext {
+            color: #10b981;
+            font-size: 13px;
+        }
+
+        .info-box {
+            background: #f0fdf4;
+            border: 2px solid #10b981;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #065f46;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* WhatsApp flotante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 9999;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 40px 24px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="premium-badge">✨ PAGO CONFIRMADO</span>
+
+        <!-- Banner de pago exitoso -->
+        <div class="success-banner">
+            <p>✅ <strong>Pago recibido:</strong> 5€. Tu guía llegará en menos de 10 segundos después de completar el formulario.</p>
+        </div>
+
+        <div class="header">
+            <h1>🐾 Crea tu guía personalizada</h1>
+            
+            <p class="subtitle">
+                Completa los datos de tu viaje y recibirás una guía ultra-personalizada con hoteles verificados, restaurantes pet-friendly, clima en tiempo real y consejos adaptados a tu peludo.
+            </p>
+
+            <div class="info-pills">
+                <div class="pill">⚡ Tardarás menos de 2 minutos</div>
+                <div class="pill">📧 Recibirás tu guía por email en menos de 10 segundos</div>
+                <div class="pill">💎 Con toda la información verificada</div>
+            </div>
+        </div>
+
+        <form id="premiumForm">
+            <!-- DATOS PERSONALES -->
+            <div class="section-title">DATOS PERSONALES</div>
+
+            <div class="form-group">
+                <label for="nombre">¿Cómo te llamas? <span class="required">*</span></label>
+                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Tu correo electrónico <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            </div>
+
+            <!-- DATOS DEL VIAJE -->
+            <div class="section-title">DATOS DEL VIAJE</div>
+
+            <div class="form-group">
+                <label for="destino">¿A dónde vas? <span class="required">*</span></label>
+                <input type="text" id="destino" name="destino" placeholder="Ciudad o región" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha_inicio">¿Cuándo empiezas tu viaje? <span class="required">*</span></label>
+                <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fecha_fin">¿Cuándo termina? <span class="required">*</span></label>
+                <input type="date" id="fecha_fin" name="fecha_fin" required>
+            </div>
+
+            <!-- SOBRE TU PELUDO -->
+            <div class="section-title">SOBRE TU PELUDO</div>
+
+            <div class="form-group">
+                <label for="nombre_mascota">¿Cómo se llama? <span class="required">*</span></label>
+                <input type="text" id="nombre_mascota" name="nombre_mascota" placeholder="Nombre de tu mascota" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tipo_mascota">¿Qué tipo de mascota es? <span class="required">*</span></label>
+                <select id="tipo_mascota" name="tipo_mascota" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="perro">🐕 Perro</option>
+                    <option value="gato">🐱 Gato</option>
+                    <option value="otro">🐾 Otro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tamano_mascota">¿De qué tamaño es? <span class="required">*</span></label>
+                <select id="tamano_mascota" name="tamano_mascota" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="pequeño">Pequeño (hasta 10kg)</option>
+                    <option value="mediano">Mediano (10-25kg)</option>
+                    <option value="grande">Grande (más de 25kg)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="info_mascota">¿Hay algo importante que debamos saber?</label>
+                <textarea id="info_mascota" name="info_mascota" placeholder="Ej: Es muy sociable, le encanta correr, tiene alergias..."></textarea>
+            </div>
+
+            <!-- PREFERENCIAS -->
+            <div class="section-title">PREFERENCIAS DE VIAJE</div>
+
+            <div class="form-group">
+                <label for="preferencias">¿Alguna preferencia adicional?</label>
+                <textarea id="preferencias" name="preferencias" placeholder="Ej: Prefiero zonas tranquilas, me gusta la naturaleza, busco playas dog-friendly, restaurantes con terraza..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <span>✨</span>
+                <span>Generar mi guía ahora</span>
+            </button>
+        </form>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p class="loading-text">✨ Generando tu guía personalizada...</p>
+            <p class="loading-subtext">Recopilando hoteles, restaurantes, clima y consejos 🐾</p>
+        </div>
+    </div>
+
+    <!-- WhatsApp flotante -->
+    <a href="https://wa.me/34671913100?text=Hola!%20Tengo%20una%20consulta%20sobre%20mi%20guía%20🐾" 
+       target="_blank"
+       class="whatsapp-float"
+       aria-label="Contactar por WhatsApp">
+        💬
+    </a>
+
+    <script>
+        // Preview dinámico del nombre de la mascota
+        document.getElementById('nombre_mascota').addEventListener('input', (e) => {
+            const preview = document.getElementById('mascotaPreview');
+            preview.textContent = e.target.value || 'tu peludo';
+        });
+
+        // Establecer fecha mínima como hoy
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('fecha_inicio').min = today;
+        document.getElementById('fecha_fin').min = today;
+
+        // Validar que fecha fin sea posterior a fecha inicio
+        document.getElementById('fecha_inicio').addEventListener('change', function() {
+            document.getElementById('fecha_fin').min = this.value;
+        });
+
+        // Manejar envío del formulario
+        document.getElementById('premiumForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Obtener datos del formulario
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                destino: document.getElementById('destino').value,
+                fecha_inicio: document.getElementById('fecha_inicio').value,
+                fecha_fin: document.getElementById('fecha_fin').value,
+                nombre_mascota: document.getElementById('nombre_mascota').value,
+                tipo_mascota: document.getElementById('tipo_mascota').value,
+                tamano_mascota: document.getElementById('tamano_mascota').value,
+                info_mascota: document.getElementById('info_mascota').value,
+                preferencias: document.getElementById('preferencias').value,
+                version: 'premium' // Marcador para n8n
+            };
+
+            // Mostrar loading
+            document.getElementById('loading').classList.add('active');
+            document.querySelector('.submit-btn').disabled = true;
+
+            try {
+                // IMPORTANTE: Reemplaza con tu webhook de n8n
+                const WEBHOOK_URL = 'TU_WEBHOOK_URL_DE_N8N_AQUI';
+                
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    // Redirigir a página de agradecimiento
+                    window.location.href = 'gracias.html';
+                } else {
+                    throw new Error('Error al generar la guía');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('❌ Hubo un error al generar tu guía. Por favor, contacta con soporte: irpadilla95@gmail.com o por WhatsApp: +34 671 913 100');
+                
+                // Rehabilitar botón
+                document.getElementById('loading').classList.remove('active');
+                document.querySelector('.submit-btn').disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

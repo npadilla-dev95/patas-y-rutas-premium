@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Patas & Rutas | Guías y Consejos para Viajar con tu Mascota</title>
+  <meta name="description" content="Artículos, guías y consejos sobre viajes con mascotas. Destinos pet-friendly, hoteles que aceptan perros, y tips de viaje.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    * {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    :root {
+      --color-primary: #2C5F4F;
+      --color-secondary: #E8DCC4;
+      --color-accent: #8B7355;
+      --color-bg: #FDFBF7;
+      --color-text: #2A2A2A;
+    }
+    
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .article-card {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .article-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(44, 95, 79, 0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold" style="color: var(--color-primary);">Patas & Rutas</a>
+        <div class="flex gap-6 items-center">
+          <a href="index.html#como-funciona" class="text-sm font-medium hover:opacity-70 transition" style="color: var(--color-text);">Cómo funciona</a>
+          <a href="index.html#solicitar-guia" class="text-sm font-medium hover:opacity-70 transition" style="color: var(--color-text);">Crear guía</a>
+          <a href="blog.html" class="text-sm font-medium" style="color: var(--color-accent);">Blog</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative pt-32 pb-20" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);">
+    <div class="max-w-6xl mx-auto px-6 text-center text-white">
+      <p class="text-sm font-semibold tracking-wider uppercase opacity-90 mb-4">Recursos gratuitos</p>
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">Blog de Viajes con Mascotas</h1>
+      <p class="text-xl opacity-90 max-w-2xl mx-auto">
+        Guías, consejos y experiencias reales para que tu próximo viaje con tu peludo sea inolvidable
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="max-w-7xl mx-auto px-6 py-20">
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+      
+      <!-- Article 1 -->
+      <article class="fade-in article-card bg-white rounded-2xl overflow-hidden shadow-lg" onclick="window.location.href='blog-1-destinos-pet-friendly.html'">
+        <div class="h-48 flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);">
+          🏖️
+        </div>
+        <div class="p-8">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full" style="background-color: var(--color-secondary); color: var(--color-primary);">Destinos</span>
+            <span class="text-xs text-gray-500">8 min lectura</span>
+          </div>
+          <h2 class="text-2xl font-bold mb-3 leading-tight" style="color: var(--color-primary);">
+            Los 10 Mejores Destinos Pet-Friendly de España
+          </h2>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Playas, montañas y ciudades donde tu perro será realmente bienvenido. Nuestra selección después de años viajando por España.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-medium" style="color: var(--color-accent);">15 nov 2025</span>
+            <span class="text-sm font-semibold" style="color: var(--color-primary);">Leer más →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="fade-in article-card bg-white rounded-2xl overflow-hidden shadow-lg" onclick="window.location.href='blog-2-viajar-avion-perro.html'">
+        <div class="h-48 flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);">
+          ✈️
+        </div>
+        <div class="p-8">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full" style="background-color: var(--color-secondary); color: var(--color-primary);">Guías</span>
+            <span class="text-xs text-gray-500">10 min lectura</span>
+          </div>
+          <h2 class="text-2xl font-bold mb-3 leading-tight" style="color: var(--color-primary);">
+            Guía Completa: Cómo Viajar en Avión con tu Perro
+          </h2>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Todo lo que necesitas saber: documentación, aerolíneas, transportín, y errores que cometimos para que tú no los hagas.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-medium" style="color: var(--color-accent);">15 nov 2025</span>
+            <span class="text-sm font-semibold" style="color: var(--color-primary);">Leer más →</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="fade-in article-card bg-white rounded-2xl overflow-hidden shadow-lg" onclick="window.location.href='blog-3-hoteles-pet-friendly.html'">
+        <div class="h-48 flex items-center justify-center text-6xl" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);">
+          🏨
+        </div>
+        <div class="p-8">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full" style="background-color: var(--color-secondary); color: var(--color-primary);">Reviews</span>
+            <span class="text-xs text-gray-500">7 min lectura</span>
+          </div>
+          <h2 class="text-2xl font-bold mb-3 leading-tight" style="color: var(--color-primary);">
+            5 Hoteles Pet-Friendly que Amamos (y por qué)
+          </h2>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Reviews honestas de hoteles donde realmente disfrutamos con nuestros perros. Precios, pros, contras y consejos.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-medium" style="color: var(--color-accent);">15 nov 2025</span>
+            <span class="text-sm font-semibold" style="color: var(--color-primary);">Leer más →</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- CTA Section -->
+    <div class="fade-in mt-20 p-12 rounded-3xl text-center text-white" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);">
+      <h2 class="text-4xl font-bold mb-4">¿Necesitas una guía personalizada?</h2>
+      <p class="text-xl mb-8 opacity-95 max-w-2xl mx-auto">
+        Más allá de estos consejos generales, creamos guías específicas para tu destino, fechas y mascota. Hoteles verificados, clima en tiempo real y consejos únicos.
+      </p>
+      <a href="index.html#solicitar-guia" class="inline-block bg-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:transform hover:scale-105 hover:shadow-2xl" style="color: var(--color-primary);">
+        💎 Crear mi guía personalizada (5€)
+      </a>
+    </div>
+
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="max-w-4xl mx-auto px-6 py-16">
+    <div class="fade-in p-10 rounded-2xl border-2" style="background-color: var(--color-secondary); border-color: var(--color-accent);">
+      <div class="text-center mb-8">
+        <h3 class="text-3xl font-bold mb-3" style="color: var(--color-primary);">📧 Suscríbete al Newsletter</h3>
+        <p class="text-lg" style="color: var(--color-text);">
+          Recibe consejos, destinos y ofertas exclusivas para viajar con tu mascota
+        </p>
+      </div>
+      <form class="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
+        <input 
+          type="email" 
+          placeholder="Tu email" 
+          class="flex-1 px-6 py-4 rounded-lg border-2 focus:outline-none text-lg"
+          style="border-color: var(--color-accent);"
+          required
+        >
+        <button 
+          type="submit" 
+          class="px-8 py-4 rounded-lg font-semibold text-white transition-all hover:opacity-90 text-lg"
+          style="background-color: var(--color-primary);"
+        >
+          Suscribirme
+        </button>
+      </form>
+      <p class="text-center text-sm mt-4 opacity-70">Sin spam. Cancelar cuando quieras.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-20 py-16 text-white" style="background-color: var(--color-primary);">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Patas & Rutas</h3>
+          <p class="opacity-80 text-sm leading-relaxed">
+            Guías personalizadas de viaje para familias que viajan con mascotas.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Enlaces</h4>
+          <ul class="space-y-2 text-sm opacity-80">
+            <li><a href="index.html" class="hover:opacity-100 transition">Inicio</a></li>
+            <li><a href="index.html#como-funciona" class="hover:opacity-100 transition">Cómo funciona</a></li>
+            <li><a href="blog.html" class="hover:opacity-100 transition">Blog</a></li>
+            <li><a href="index.html#solicitar-guia" class="hover:opacity-100 transition">Crear guía</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Blog</h4>
+          <ul class="space-y-2 text-sm opacity-80">
+            <li><a href="blog-1-destinos-pet-friendly.html" class="hover:opacity-100 transition">Destinos pet-friendly</a></li>
+            <li><a href="blog-2-viajar-avion-perro.html" class="hover:opacity-100 transition">Viajar en avión</a></li>
+            <li><a href="blog-3-hoteles-pet-friendly.html" class="hover:opacity-100 transition">Hoteles recomendados</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold mb-4">Síguenos</h4>
+          <ul class="space-y-2 text-sm opacity-80">
+            <li><a href="https://www.instagram.com/viajaohana/" target="_blank" class="hover:opacity-100 transition">📸 @viajaohana</a></li>
+            <li><a href="https://www.instagram.com/natsss_95/" target="_blank" class="hover:opacity-100 transition">📸 @natsss_95</a></li>
+            <li><a href="https://www.tiktok.com/@natsss_95" target="_blank" class="hover:opacity-100 transition">🎵 @natsss_95</a></li>
+            <li><a href="https://wa.me/34671913100" target="_blank" class="hover:opacity-100 transition">💬 WhatsApp</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-white/20 pt-8 text-center">
+        <p class="text-sm opacity-80 mb-2">© 2025 Patas & Rutas</p>
+        <p class="text-sm opacity-60">Hecho con 💚 en Santiago de Compostela</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Fade in animation on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    fadeElements.forEach(el => fadeInObserver.observe(el));
+
+    // Newsletter form
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('¡Gracias por suscribirte! Te enviaremos contenido exclusivo pronto 💚');
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>

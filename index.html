@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patas & Rutas - Guías de viaje personalizadas para viajar con tu mascota</title>
+  <meta name="description" content="Guías de viaje personalizadas para familias que viajan con mascotas. Hoteles pet-friendly, restaurantes, rutas y consejos adaptados para tu perro.">
+  <meta name="fo-verify" content="02fa8946-2e3d-45ad-bb48-4b22a93a7b04" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    * {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    
+    :root {
+      --color-primary: #2C5F4F;
+      --color-secondary: #E8DCC4;
+      --color-accent: #8B7355;
+      --color-bg: #FDFBF7;
+      --color-text: #2A2A2A;
+    }
+    
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+    }
+    
+    /* Hero Section */
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(44, 95, 79, 0.95) 0%, rgba(139, 115, 85, 0.85) 100%);
+    }
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Fade in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Custom button */
+    .btn-primary {
+      background-color: var(--color-primary);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-primary:hover {
+      background-color: #234d3e;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(44, 95, 79, 0.2);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-primary);
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      border: 2px solid var(--color-primary);
+    }
+    
+    .btn-secondary:hover {
+      background-color: var(--color-primary);
+      color: white;
+    }
+    
+    /* Card hover effect */
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Section spacing */
+    .section {
+      padding: 100px 0;
+    }
+    
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+    }
+    
+    /* WhatsApp button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      z-index: 100;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    }
+    
+    /* Stripe payment form */
+    .StripeElement {
+      background-color: white;
+      padding: 12px;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      transition: border 0.3s ease;
+    }
+    
+    .StripeElement--focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(44, 95, 79, 0.1);
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: var(--color-bg);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-accent);
+      border-radius: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-primary);
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold" style="color: var(--color-primary);">Patas & Rutas</a>
+        <div class="flex gap-6 items-center">
+          <a href="#como-funciona" class="text-sm font-medium hover:opacity-70 transition hidden md:inline" style="color: var(--color-text);">Cómo funciona</a>
+          <a href="blog.html" class="text-sm font-medium px-4 py-2 rounded-lg transition-all hover:opacity-90" style="background-color: var(--color-secondary); color: var(--color-primary);">📝 Blog</a>
+          <a href="#solicitar-guia" class="text-sm font-semibold px-4 py-2 rounded-lg text-white transition-all hover:opacity-90" style="background-color: var(--color-primary);">Crear guía</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+    <!-- Background Video -->
+    <div class="absolute inset-0 z-0">
+      <video autoplay loop muted playsinline class="w-full h-full object-cover">
+        <source src="hero-video.mp4" type="video/mp4">
+        <!-- Fallback a imagen si video no carga -->
+        <img src="hero-image.jpg" 
+             alt="Natalia con sus perros en la playa" 
+             class="w-full h-full object-cover">
+      </video>
+      <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="relative z-10 text-center px-6 max-w-4xl">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-2xl">
+        Viajar con ellos no debería<br>ser tan complicado
+      </h1>
+      <p class="text-xl md:text-2xl mb-12 font-light opacity-95 drop-shadow-lg">
+        Guías personalizadas para que tu próximo viaje con tu mascota<br>sea exactamente lo que necesitas
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#historia" class="btn-primary shadow-2xl">Descubre nuestra historia</a>
+        <a href="#como-funciona" class="btn-secondary shadow-xl">Ver cómo funciona</a>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <svg class="w-6 h-6 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Historia Section -->
+  <section id="historia" class="section bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="fade-in">
+        <div class="text-center mb-12">
+          <span class="text-sm font-semibold tracking-wider uppercase" style="color: var(--color-accent);">Nuestra Historia</span>
+          <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">De Cádiz a Galicia</h2>
+          <div class="w-20 h-1 mx-auto" style="background-color: var(--color-primary);"></div>
+        </div>
+        
+        <div class="prose prose-lg mx-auto text-gray-700 leading-relaxed space-y-6">
+          <p class="text-xl leading-relaxed">
+            Hace cuatro años, mis tres perros, mi pareja y yo metimos toda nuestra vida en un coche y nos lanzamos a recorrer España. No teníamos un plan maestro. Solo ganas de ver mundo sin dejar nada atrás.
+          </p>
+          
+          <p class="text-lg">
+            Empezamos en Cádiz, mi tierra. Llegamos hasta Canarias, en barco (sí, con los tres). Y más tarde, paramos en Galicia, donde ahora es nuestro hogar...
+          </p>
+          
+          <!-- Contenido desplegable -->
+          <div id="historia-completa" class="hidden space-y-6">
+            <p class="font-semibold text-2xl" style="color: var(--color-primary);">
+              Pero por el camino aprendí algo:
+            </p>
+            
+            <p>
+              ¡Viajar con perros es toda una aventura! Pero encontrar dónde quedarte... eso ya es otro nivel.
+            </p>
+            
+            <div class="bg-gray-50 p-8 rounded-lg border-l-4 my-8" style="border-color: var(--color-accent);">
+              <p class="italic text-gray-600 space-y-3">
+                <span class="block">"¿Tres perros? Uf, no sé..."</span>
+                <span class="block">"Te cobro 20€ extra por cada uno."</span>
+                <span class="block">"Solo perros pequeños, lo siento."</span>
+              </p>
+            </div>
+            
+            <p>
+              Y yo ahí, con mis tres bolas de pelo mirándome, con esas caritas y pensé: <em>"¿Por qué es tan difícil?"</em>
+            </p>
+            
+            <p>
+              Al final siempre encontrábamos algo. Pero me tocaba llamar a 15 sitios, buscar en 20 webs diferentes, y rezar para que aceptaran mascotas (y que "mascotas" significara más de un perro).
+            </p>
+            
+            <p class="text-xl font-medium" style="color: var(--color-primary);">
+              Pensé: "Tiene que haber una forma más fácil de hacer esto."
+            </p>
+            
+            <p>
+              Y bueno... por eso, estamos aquí.
+            </p>
+            
+            <p>
+              <strong>Patas & Rutas</strong> nació de esos días desesperados buscando hotel con tres perros dormidos en el asiento de atrás.
+            </p>
+            
+            <p class="text-xl">
+              Así que, si tú también viajas con los tuyos y te ha resonado un poco, esto es para ti.
+            </p>
+            
+            <p class="text-2xl font-semibold text-center py-6" style="color: var(--color-primary);">
+              Porque ellos no son "mascotas".<br>Son familia.<br>Y las familias viajan juntas.
+            </p>
+          </div>
+          
+          <!-- Botón leer más -->
+          <div class="text-center mt-8">
+            <button id="btn-leer-mas" onclick="toggleHistoria()" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all hover:transform hover:scale-105" style="background-color: var(--color-secondary); color: var(--color-primary);">
+              <span id="btn-texto">Leer la historia completa</span>
+              <svg id="btn-icon" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- El Problema Section -->
+  <section class="section" style="background-color: var(--color-secondary);">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-in text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12">¿Te suena familiar?</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white p-8 rounded-lg card-hover">
+            <div class="text-5xl mb-4">🔍</div>
+            <h3 class="text-xl font-semibold mb-3">Horas buscando</h3>
+            <p class="text-gray-600">
+              Navegas entre 10 webs diferentes intentando encontrar un hotel que acepte a tu perro (y que no cueste una fortuna)
+            </p>
+          </div>
+          
+          <div class="bg-white p-8 rounded-lg card-hover">
+            <div class="text-5xl mb-4">📞</div>
+            <h3 class="text-xl font-semibold mb-3">Llamadas infinitas</h3>
+            <p class="text-gray-600">
+              "¿Aceptan perros?" "¿De qué tamaño?" "¿Cuánto extra?" Y así con cada alojamiento...
+            </p>
+          </div>
+          
+          <div class="bg-white p-8 rounded-lg card-hover">
+            <div class="text-5xl mb-4">😰</div>
+            <h3 class="text-xl font-semibold mb-3">Miedo a elegir mal</h3>
+            <p class="text-gray-600">
+              ¿Y si no es tan pet-friendly como dicen? ¿Y si hay escaleras imposibles? ¿Y si...?
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- La Solución Section -->
+  <section id="como-funciona" class="section bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-in">
+        <div class="text-center mb-16">
+          <span class="text-sm font-semibold tracking-wider uppercase" style="color: var(--color-accent);">La Solución</span>
+          <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Así funciona Patas & Rutas</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Una guía personalizada con todo lo que necesitas para tu viaje, sin complicaciones
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-8 mb-16">
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background-color: var(--color-primary);">1</div>
+            <h3 class="text-lg font-semibold mb-2">Rellenas el formulario</h3>
+            <p class="text-gray-600 text-sm">Cuéntanos sobre tu viaje y tu mascota</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background-color: var(--color-primary);">2</div>
+            <h3 class="text-lg font-semibold mb-2">Creamos tu guía</h3>
+            <p class="text-gray-600 text-sm">Buscamos los mejores sitios pet-friendly para ti</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background-color: var(--color-primary);">3</div>
+            <h3 class="text-lg font-semibold mb-2">La recibes por email</h3>
+            <p class="text-gray-600 text-sm">En menos de 24h, guía personalizada en tu bandeja</p>
+          </div>
+          
+          <div class="text-center">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-white text-2xl font-bold" style="background-color: var(--color-primary);">4</div>
+            <h3 class="text-lg font-semibold mb-2">¡A viajar!</h3>
+            <p class="text-gray-600 text-sm">Disfruta sin preocuparte de nada más</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buscador de Alojamientos Hotellook (Travelpayouts) -->
+  <section id="buscador-alojamientos" class="section bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="fade-in">
+        <div class="text-center mb-12">
+          <span class="text-sm font-semibold tracking-wider uppercase" style="color: var(--color-accent);">Busca Alojamiento</span>
+          <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Hoteles Pet-Friendly</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Compara precios en Booking, Hotels.com y más. Todo en un solo lugar.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 border-2" style="border-color: var(--color-secondary);">
+          
+          <!-- Formulario de búsqueda -->
+          <form id="hotellook-search-form" class="space-y-6">
+            
+            <div>
+              <label class="block text-sm font-semibold mb-2" style="color: var(--color-primary);">¿A dónde vas?</label>
+              <input type="text" 
+                     id="destination" 
+                     placeholder="Ciudad o destino..." 
+                     required
+                     class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none text-lg"
+                     style="focus:border-color: var(--color-primary);">
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-semibold mb-2" style="color: var(--color-primary);">Fecha de entrada</label>
+                <input type="date" 
+                       id="checkin" 
+                       required
+                       class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none">
+              </div>
+              
+              <div>
+                <label class="block text-sm font-semibold mb-2" style="color: var(--color-primary);">Fecha de salida</label>
+                <input type="date" 
+                       id="checkout" 
+                       required
+                       class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none">
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-semibold mb-2" style="color: var(--color-primary);">Adultos</label>
+                <select id="adults" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none">
+                  <option value="1">1 adulto</option>
+                  <option value="2" selected>2 adultos</option>
+                  <option value="3">3 adultos</option>
+                  <option value="4">4 adultos</option>
+                </select>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-semibold mb-2" style="color: var(--color-primary);">Habitaciones</label>
+                <select id="rooms" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none">
+                  <option value="1" selected>1 habitación</option>
+                  <option value="2">2 habitaciones</option>
+                  <option value="3">3 habitaciones</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+              <p class="text-sm text-green-900 text-center">
+                <strong>🐾 Tip:</strong> Usa los filtros "Mascotas permitidas" en los resultados para ver solo alojamientos pet-friendly
+              </p>
+            </div>
+            
+            <button type="submit" 
+                    class="w-full text-lg py-4 flex items-center justify-center gap-2 text-white rounded-lg font-semibold transition-all hover:transform hover:scale-105 shadow-lg"
+                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);">
+              <span>🔍</span>
+              <span>Buscar hoteles pet-friendly</span>
+            </button>
+          </form>
+
+        </div>
+        
+        <p class="text-center text-sm text-gray-500 mt-6">
+          Te redirigiremos a Hotellook donde comparamos precios de Booking, Hotels.com y más
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ejemplo de Guía -->
+  <section class="section" style="background-color: var(--color-bg);">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="fade-in">
+        <div class="text-center mb-12">
+          <span class="text-sm font-semibold tracking-wider uppercase" style="color: var(--color-accent);">Ejemplo Real</span>
+          <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Esto es lo que recibirás</h2>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          <div class="mb-8">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--color-primary);">📍 Guía de Viaje: Vigo con Max</h3>
+            <div class="flex flex-wrap gap-3 text-sm">
+              <span class="px-4 py-2 rounded-full" style="background-color: var(--color-secondary); color: var(--color-primary);">🐕 Pastor Alemán · 30kg</span>
+              <span class="px-4 py-2 rounded-full" style="background-color: var(--color-secondary); color: var(--color-primary);">📅 3-5 Julio 2024</span>
+              <span class="px-4 py-2 rounded-full" style="background-color: var(--color-secondary); color: var(--color-primary);">🚗 En coche</span>
+            </div>
+          </div>
+
+          <div class="space-y-8">
+            <!-- Hoteles -->
+            <div class="border-l-4 pl-6" style="border-color: var(--color-primary);">
+              <h4 class="text-xl font-bold mb-4">🏨 Alojamientos Pet-Friendly Verificados</h4>
+              <div class="space-y-4">
+                <div class="bg-gray-50 p-5 rounded-lg">
+                  <div class="flex justify-between items-start mb-2">
+                    <h5 class="font-semibold text-lg">Hotel Bahía de Vigo</h5>
+                    <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: var(--color-primary); color: white;">Recomendado</span>
+                  </div>
+                  <p class="text-sm text-gray-600 mb-3">🐾 Acepta perros grandes · Sin cargo extra · Jardín privado</p>
+                  <div class="flex flex-col sm:flex-row gap-3 text-sm">
+                    <a href="#" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-white font-medium transition-all hover:transform hover:scale-105" style="background-color: var(--color-primary);">
+                      🔍 Ver disponibilidad y reservar
+                    </a>
+                    <span class="text-gray-600 self-center">~85€/noche</span>
+                  </div>
+                </div>
+                
+                <div class="bg-gray-50 p-5 rounded-lg">
+                  <h5 class="font-semibold text-lg mb-2">Apartamento Casa do Mar</h5>
+                  <p class="text-sm text-gray-600 mb-3">🐾 Perros bienvenidos · Patio privado · Cerca de playa canina</p>
+                  <div class="flex flex-col sm:flex-row gap-3 text-sm">
+                    <a href="#" class="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-white font-medium transition-all hover:transform hover:scale-105" style="background-color: #FF5A5F;">
+                      🏡 Ver disponibilidad y reservar
+                    </a>
+                    <span class="text-gray-600 self-center">~70€/noche</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Restaurantes -->
+            <div class="border-l-4 pl-6" style="border-color: var(--color-accent);">
+              <h4 class="text-xl font-bold mb-4">🍽️ Restaurantes con Terraza Pet-Friendly</h4>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h5 class="font-semibold mb-1">Maruja Limón</h5>
+                  <p class="text-sm text-gray-600">Terraza amplia · Cuencos de agua · Cocina gallega moderna</p>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <h5 class="font-semibold mb-1">O Mosquito</h5>
+                  <p class="text-sm text-gray-600">Frente al mar · Super pet-friendly · Tapas gallegas</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Actividades -->
+            <div class="border-l-4 pl-6" style="border-color: var(--color-primary);">
+              <h4 class="text-xl font-bold mb-4">🌲 Rutas y Actividades</h4>
+              <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start gap-3">
+                  <span class="text-green-600 font-bold">✓</span>
+                  <div>
+                    <strong>Playa de Samil</strong> - Zona específica para perros. Mejor ir temprano (antes de las 11h)
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-green-600 font-bold">✓</span>
+                  <div>
+                    <strong>Monte O Castro</strong> - Ruta circular 4km. Vistas increíbles. Lleva agua, no hay fuentes
+                  </div>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-green-600 font-bold">✓</span>
+                  <div>
+                    <strong>Paseo marítimo</strong> - 6km llanos perfectos para caminar con tu perro
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Kit esencial -->
+            <div id="kit-viaje" class="p-6 rounded-lg" style="background-color: var(--color-secondary);">
+              <p class="font-bold text-lg mb-2" style="color: var(--color-primary);">🎒 Kit esencial para tu viaje</p>
+              <p class="text-sm text-gray-700 mb-4 italic">Productos más vendidos y mejor valorados para viajar seguro con tu mascota</p>
+              
+              <!-- Acordeón -->
+              <div class="space-y-2">
+                
+                <!-- SEGURIDAD -->
+                <details class="bg-white/70 rounded-lg overflow-hidden">
+                  <summary class="cursor-pointer p-4 font-semibold flex items-center justify-between hover:bg-white/90 transition" style="color: var(--color-primary);">
+                    <span>🚗 Seguridad en el viaje (2 productos)</span>
+                    <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="p-4 pt-0 space-y-2 text-sm">
+                    <div class="leading-relaxed">
+                      ✅ <strong>Arnés reflectante para coche</strong> (22€) - Seguridad obligatoria
+                      <br><a href="https://amzn.to/4nXSrHX" target="_blank" class="text-blue-600 underline hover:text-blue-700 text-xs">→ Ver en Amazon</a>
+                    </div>
+                    <div class="leading-relaxed">
+                      ✅ <strong>Correa larga 3-30m</strong> (12€) - #1 más vendido para camping
+                      <br><a href="https://amzn.to/4oGADT7" target="_blank" class="text-blue-600 underline hover:text-blue-700 text-xs">→ Ver en Amazon</a>
+                    </div>
+                  </div>
+                </details>
+
+                <!-- SALUD -->
+                <details class="bg-white/70 rounded-lg overflow-hidden">
+                  <summary class="cursor-pointer p-4 font-semibold flex items-center justify-between hover:bg-white/90 transition" style="color: var(--color-primary);">
+                    <span>🏥 Salud y emergencias (2 productos)</span>
+                    <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="p-4 pt-0 space-y-2 text-sm">
+                    <div class="leading-relaxed">
+                      ✅ <strong>Botiquín completo 200 piezas</strong> (22€) - Para cualquier emergencia
+                      <br><a href="https://amzn.to/47IoreE" target="_blank" class="text-blue-600 underline hover:text-blue-700 text-xs">→ Ver en Amazon</a>
+                    </div>
+                    <div class="leading-relaxed">
+                      ✅ <strong>Botiquín básico 56ud</strong> (12€) - Opción económica
+                      <br><a href="https://amzn.to/3JY4I1g" target="_blank" class="text-blue-600 underline hover:text-blue-700 text-xs">→ Ver en Amazon</a>
+                    </div>
+                  </div>
+                </details>
+
+                <!-- HIDRATACIÓN E HIGIENE -->
+                <details class="bg-white/70 rounded-lg overflow-hidden">
+                  <summary class="cursor-pointer p-4 font-semibold flex items-center justify-between hover:bg-white/90 transition" style="color: var(--color-primary);">
+                    <span>💧 Hidratación e higiene (3 productos)</span>
+                    <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="p-4 pt-0 space-y-2 text-sm">
+                    <div class="leading-relaxed">
+                      ✅ <strong>Bebedero portátil</strong> (10€) - Imprescindible en ruta
+                      <br><a href="https://amzn.to/4p8MwRy" target="_blank" class="text-blue-600 underline hover:text-blue-700 text-xs">→ Ver en Amazon</a>
+                    </div>
+                    <div class="leading-relaxed">
+                      ✅ <strong>Toalla microfibra</strong> (14€) - Secado ultrarrápido
+                      <br><a href="https://amzn.to/3JBibMt" target="_blank" class="text-blue-600 underline hover:text-blue-700 text-xs">→ Ver en Amazon</a>
+                    </div>
+                    <div class="leading-relaxed">
+                      ✅ <strong>Bolsas biodegradables 600ud</strong> (10€) - Todo el viaje cubierto
+                      <br><a href="https://amzn.to/4qZJBMJ" target="_blank" class="text-blue-600 underline hover:text-blue-700 text-xs">→ Ver en Amazon</a>
+                    </div>
+                  </div>
+                </details>
+
+                <!-- CUIDADO EXTRA -->
+                <details class="bg-white/70 rounded-lg overflow-hidden">
+                  <summary class="cursor-pointer p-4 font-semibold flex items-center justify-between hover:bg-white/90 transition" style="color: var(--color-primary);">
+                    <span>🐾 Cuidado extra (2 productos)</span>
+                    <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="p-4 pt-0 space-y-2 text-sm">
+                    <div class="leading-relaxed">
+                      ✅ <strong>Cera protectora para patas</strong> (12€) - Asfalto caliente y terrenos difíciles
+                      <br><a href="https://amzn.to/49PpJWm" target="_blank" class="text-blue-600 underline hover:text-blue-700 text-xs">→ Ver en Amazon</a>
+                    </div>
+                    <div class="leading-relaxed">
+                      ✅ <strong>Champú aloe vera</strong> (7€) - Después de playa/montaña
+                      <br><a href="https://amzn.to/44b627N" target="_blank" class="text-blue-600 underline hover:text-blue-700 text-xs">→ Ver en Amazon</a>
+                    </div>
+                  </div>
+                </details>
+
+              </div>
+
+              <div class="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
+                <p class="text-xs text-green-900 text-center">
+                  💰 <strong>Kit completo:</strong> ~90€ | Todo listo antes de tu viaje con Amazon Prime
+                </p>
+              </div>
+            </div>
+
+            <!-- Seguro de viaje IATI -->
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-5 rounded-lg">
+              <div class="flex items-start gap-4">
+                <div class="text-3xl">🛡️</div>
+                <div>
+                  <h4 class="font-bold mb-2 text-blue-900">Seguro de viaje con cobertura para mascotas</h4>
+                  <p class="text-sm text-gray-700 mb-3">
+                    Viaja tranquilo sabiendo que tanto tú como tu mascota estáis cubiertos ante cualquier imprevisto.
+                  </p>
+                  <a href="https://www.iatiseguros.com" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium text-sm hover:bg-blue-700 transition-all hover:transform hover:scale-105">
+                    Ver seguros IATI con 5% descuento →
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Consejos -->
+            <div class="border-l-4 pl-6" style="border-color: var(--color-accent);">
+              <h4 class="text-xl font-bold mb-4">💡 Consejos Específicos para Max</h4>
+              <ul class="space-y-2 text-gray-700">
+                <li>• Vigo tiene muchas cuestas - Max agradecerá paseos cortos y frecuentes</li>
+                <li>• Clima: Julio suele llover - lleva toalla y chubasquero</li>
+                <li>• Veterinario de urgencia 24h: Clínica Atlantis (anotado en la guía)</li>
+                <li>• Transporte: Max puede ir en bus urbano con bozal</li>
+              </ul>
+            </div>
+
+            <!-- Clima -->
+            <div class="bg-blue-50 p-5 rounded-lg">
+              <h4 class="font-bold mb-2">🌤️ Clima en Vigo (3-5 Julio)</h4>
+              <p class="text-sm text-gray-700">Temperatura: 18-24°C · 60% probabilidad lluvia · Viento moderado</p>
+              <p class="text-sm text-gray-600 mt-2">💡 Lleva chubasquero para ti y para Max</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-xl text-gray-600 mb-6">¿Quieres una guía así para tu próximo viaje?</p>
+          <a href="#solicitar-guia" class="btn-primary">Solicita tu guía personalizada</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buscador de Destinos -->
+  <!-- Formulario Solicitud -->
+  <section id="solicitar-guia" class="section" style="background-color: var(--color-bg);">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="fade-in">
+        <div class="text-center mb-12">
+          <span class="text-sm font-semibold tracking-wider uppercase" style="color: var(--color-accent);">Tu guía personalizada</span>
+          <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">Solicita tu guía ahora</h2>
+          <p class="text-xl text-gray-600 mb-4">5€ · Recíbela en menos de 24 horas</p>
+        </div>
+        
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center">
+          
+          <div class="mb-8">
+            <div class="text-6xl mb-6">✨</div>
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--color-primary);">¿Cómo funciona?</h3>
+            
+            <div class="space-y-4 text-left max-w-xl mx-auto mb-8">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background-color: var(--color-primary);">1</div>
+                <div>
+                  <p class="font-semibold">Realiza el pago seguro (5€)</p>
+                  <p class="text-sm text-gray-600">Pago único mediante Stripe</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background-color: var(--color-primary);">2</div>
+                <div>
+                  <p class="font-semibold">Completa tus datos de viaje</p>
+                  <p class="text-sm text-gray-600">Destino, fechas, info de tu mascota (2 minutos)</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-bold text-white" style="background-color: var(--color-primary);">3</div>
+                <div>
+                  <p class="font-semibold">Recibe tu guía personalizada</p>
+                  <p class="text-sm text-gray-600">Por email en menos de 24 horas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botón de pago Stripe -->
+          <a href="https://buy.stripe.com/7sYaEX5BA7ki5U6cnuaZi00" 
+             class="inline-block bg-gradient-to-r from-green-600 to-green-500 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:transform hover:scale-105 hover:shadow-xl">
+            💳 Pagar 5€ y crear mi guía
+          </a>
+
+          <p class="text-xs text-gray-500 mt-6">
+            Pago seguro procesado por Stripe · <a href="terminos.html" class="underline hover:text-gray-700">Términos y condiciones</a>
+          </p>
+
+          <div class="mt-8 p-4 bg-green-50 rounded-lg border border-green-200">
+            <p class="text-sm text-green-900">
+              <strong>💚 Garantía de satisfacción:</strong> Si no estás satisfecho con tu guía, te devolvemos el dinero en 7 días. Sin preguntas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-white">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="fade-in">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Preguntas frecuentes</h2>
+        </div>
+        
+        <div class="space-y-6">
+          <details class="bg-gray-50 p-6 rounded-lg cursor-pointer">
+            <summary class="font-semibold text-lg">¿Cuánto tarda en llegar mi guía?</summary>
+            <p class="mt-3 text-gray-600">Menos de 24 horas desde que realizas el pago. La recibirás por email en formato PDF.</p>
+          </details>
+          
+          <details class="bg-gray-50 p-6 rounded-lg cursor-pointer">
+            <summary class="font-semibold text-lg">¿La guía está personalizada para mi mascota?</summary>
+            <p class="mt-3 text-gray-600">Sí, totalmente. Tenemos en cuenta el tamaño, carácter, edad y necesidades específicas de tu mascota.</p>
+          </details>
+          
+          <details class="bg-gray-50 p-6 rounded-lg cursor-pointer">
+            <summary class="font-semibold text-lg">¿Qué incluye la guía exactamente?</summary>
+            <p class="mt-3 text-gray-600">Hoteles pet-friendly verificados, restaurantes con terraza, rutas adaptadas, veterinarios de urgencia, consejos de clima, y recomendaciones específicas para tu destino y mascota.</p>
+          </details>
+          
+          <details class="bg-gray-50 p-6 rounded-lg cursor-pointer">
+            <summary class="font-semibold text-lg">¿Puedo pedir cambios si algo no me gusta?</summary>
+            <p class="mt-3 text-gray-600">¡Por supuesto! Si hay algo que quieres ajustar, escríbenos y lo modificamos sin coste adicional.</p>
+          </details>
+          
+          <details class="bg-gray-50 p-6 rounded-lg cursor-pointer">
+            <summary class="font-semibold text-lg">¿Funciona para viajar fuera de España?</summary>
+            <p class="mt-3 text-gray-600">Sí, creamos guías para toda Europa. Solo indícanos el destino en el formulario.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="section" style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);">
+    <div class="max-w-4xl mx-auto px-6 text-center text-white">
+      <div class="fade-in">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">¿Listo para tu próxima aventura?</h2>
+        <p class="text-xl mb-8 opacity-90">
+          Deja que hagamos el trabajo difícil por ti.<br>
+          Tú solo preocúpate de disfrutar con los tuyos.
+        </p>
+        <a href="#solicitar-guia" class="inline-block bg-white px-8 py-4 rounded-lg font-semibold transition-all hover:transform hover:scale-105 hover:shadow-xl" style="color: var(--color-primary);">
+          Solicita tu guía ahora →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seguros IATI -->
+  <section class="section bg-gradient-to-r from-blue-50 to-blue-100">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="fade-in">
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+          <div class="grid md:grid-cols-2 gap-0">
+            
+            <!-- Imagen/Icono lado izquierdo -->
+            <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-12 flex items-center justify-center">
+              <div class="text-center text-white">
+                <div class="text-7xl mb-6">🛡️</div>
+                <h3 class="text-3xl font-bold mb-4">Viaja Protegido</h3>
+                <p class="text-xl opacity-90">Tú y tu mascota cubiertos</p>
+              </div>
+            </div>
+            
+            <!-- Contenido lado derecho -->
+            <div class="p-8 md:p-12">
+              <div class="mb-6">
+                <span class="text-sm font-semibold tracking-wider uppercase text-blue-600">Seguro de Viaje</span>
+                <h2 class="text-3xl font-bold mt-2 mb-4">IATI Seguros con Mascotas</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                  Viaja tranquilo sabiendo que tanto tú como tu peludo estáis protegidos ante cualquier imprevisto durante el viaje.
+                </p>
+              </div>
+              
+              <div class="space-y-3 mb-8">
+                <div class="flex items-start gap-3">
+                  <span class="text-green-600 font-bold text-xl flex-shrink-0">✓</span>
+                  <span class="text-gray-700">Cobertura veterinaria para tu mascota</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-green-600 font-bold text-xl flex-shrink-0">✓</span>
+                  <span class="text-gray-700">Asistencia médica 24/7 en viaje</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-green-600 font-bold text-xl flex-shrink-0">✓</span>
+                  <span class="text-gray-700">Cancelación de viaje cubierta</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="text-green-600 font-bold text-xl flex-shrink-0">✓</span>
+                  <span class="text-gray-700">Sin franquicias ni copagos</span>
+                </div>
+              </div>
+              
+              <a href="https://www.iatiseguros.com" 
+                 target="_blank"
+                 class="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all hover:transform hover:scale-105 shadow-lg">
+                <span>Ver seguros IATI</span>
+                <span>→</span>
+              </a>
+              
+              <p class="text-sm text-gray-500 mt-4">
+                💰 5% de descuento en tu seguro
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cuidadores de Mascotas -->
+  <section class="section bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-in">
+        <div class="text-center mb-12">
+          <span class="text-sm font-semibold tracking-wider uppercase" style="color: var(--color-accent);">Cuidadores</span>
+          <h2 class="text-4xl md:text-5xl font-bold mt-4 mb-6">¿Prefieres dejar a tu peludo en casa?</h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Encuentra cuidadores de confianza verificados para que cuiden a tu mascota mientras viajas
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+          
+          <!-- Rover -->
+          <div class="bg-white rounded-xl shadow-xl p-8 border-2 border-gray-100 hover:border-green-300 transition-all">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-3xl">
+                🐕
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold">Rover</h3>
+                <p class="text-sm text-gray-600">Cuidadores en España</p>
+              </div>
+            </div>
+            
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              Red de cuidadores verificados con opiniones reales. Servicios de paseo, guardería y estancia en casa del cuidador.
+            </p>
+            
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center gap-2 text-sm">
+                <span class="text-green-600">✓</span>
+                <span>Cuidadores verificados</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm">
+                <span class="text-green-600">✓</span>
+                <span>Reserva online segura</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm">
+                <span class="text-green-600">✓</span>
+                <span>Atención 24/7</span>
+              </div>
+            </div>
+            
+            <a href="https://www.rover.com/es/" 
+               target="_blank"
+               class="block text-center px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-all hover:transform hover:scale-105">
+              Ver cuidadores en Rover →
+            </a>
+          </div>
+          
+          <!-- Gudog -->
+          <div class="bg-white rounded-xl shadow-xl p-8 border-2 border-gray-100 hover:border-purple-300 transition-all">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center text-3xl">
+                🐾
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold">Gudog</h3>
+                <p class="text-sm text-gray-600">Cuidadores locales</p>
+              </div>
+            </div>
+            
+            <p class="text-gray-700 mb-6 leading-relaxed">
+              Plataforma europea de cuidadores de mascotas. Tu perro se queda en casa de familias amantes de los animales.
+            </p>
+            
+            <div class="space-y-2 mb-6">
+              <div class="flex items-center gap-2 text-sm">
+                <span class="text-purple-600">✓</span>
+                <span>Familias con experiencia</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm">
+                <span class="text-purple-600">✓</span>
+                <span>Seguro incluido</span>
+              </div>
+              <div class="flex items-center gap-2 text-sm">
+                <span class="text-purple-600">✓</span>
+                <span>Fotos diarias de tu mascota</span>
+              </div>
+            </div>
+            
+            <a href="https://gudog.com/es" 
+               target="_blank"
+               class="block text-center px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-all hover:transform hover:scale-105">
+              Ver cuidadores en Gudog →
+            </a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-2xl font-bold mb-4">Patas & Rutas</h3>
+          <p class="text-gray-400 text-sm">Guías de viaje personalizadas para familias que viajan con mascotas.</p>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Enlaces</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="#historia" class="hover:text-white transition">Nuestra historia</a></li>
+            <li><a href="#como-funciona" class="hover:text-white transition">Cómo funciona</a></li>
+            <li><a href="#kit-viaje" class="hover:text-white transition">🎒 Kit de viaje</a></li>
+            <li><a href="#solicitar-guia" class="hover:text-white transition">Solicitar guía</a></li>
+            <li><a href="terminos.html" class="hover:text-white transition">Términos y condiciones</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Síguenos</h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="https://www.tiktok.com/@natsss_95" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-white transition text-sm">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+                </svg>
+                TikTok @natsss_95
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/natsss_95" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-white transition text-sm">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                Instagram @natsss_95
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/viajaohana" target="_blank" class="flex items-center gap-2 text-gray-400 hover:text-white transition text-sm">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                Instagram @viajaohana
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Contacto</h4>
+          <div class="space-y-2 text-gray-400 text-sm">
+            <p>
+             <a href="mailto:irpadilla95@gmail.com" class="hover:text-white transition">
+    irpadilla95@gmail.com
+            </a>
+            </p>
+            <p>
+              <a href="https://wa.me/34671913100" target="_blank" class="hover:text-white transition flex items-center gap-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                WhatsApp
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 text-center text-gray-400 text-sm">
+        <p class="mb-2">&copy; 2025 Patas & Rutas. Hecho con 💚 para familias viajeras.</p>
+        <p class="text-xs">
+          <a href="#terminos" class="hover:text-white transition">Términos y Condiciones</a> · 
+          <a href="#privacidad" class="hover:text-white transition ml-2">Política de Privacidad</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/34671913100?text=Hola!%20Quiero%20más%20información%20sobre%20las%20guías%20de%20viaje%20🐾" 
+     class="whatsapp-float" 
+     target="_blank"
+     aria-label="Contactar por WhatsApp"
+     title="Chatea con nosotros por WhatsApp">
+    💬
+  </a>
+
+  <!-- Stripe JS -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://js.stripe.com/v3/"></script>
+
+  <!-- Scripts -->
+  <script>
+    // Toggle historia completa
+    function toggleHistoria() {
+      const contenido = document.getElementById('historia-completa');
+      const btn = document.getElementById('btn-leer-mas');
+      const btnTexto = document.getElementById('btn-texto');
+      const btnIcon = document.getElementById('btn-icon');
+      
+      if (contenido.classList.contains('hidden')) {
+        contenido.classList.remove('hidden');
+        btnTexto.textContent = 'Ocultar historia';
+        btnIcon.style.transform = 'rotate(180deg)';
+      } else {
+        contenido.classList.add('hidden');
+        btnTexto.textContent = 'Leer la historia completa';
+        btnIcon.style.transform = 'rotate(0deg)';
+        
+        // Scroll suave a la sección
+        document.getElementById('historia').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    
+    // Fade in animation on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    fadeElements.forEach(el => fadeInObserver.observe(el));
+
+    // Buscador Hotellook con marker de Travelpayouts
+    document.getElementById('hotellook-search-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const destination = document.getElementById('destination').value;
+      const checkin = document.getElementById('checkin').value;
+      const checkout = document.getElementById('checkout').value;
+      const adults = document.getElementById('adults').value;
+      const rooms = document.getElementById('rooms').value;
+      
+      // Validar campos
+      if (!destination || !checkin || !checkout) {
+        alert('Por favor completa todos los campos');
+        return;
+      }
+      
+      // Construir URL de Hotellook con tu marker
+      const destinationEncoded = encodeURIComponent(destination);
+      const hotellookUrl = `https://hotellook.com/search?destination=${destinationEncoded}&checkIn=${checkin}&checkOut=${checkout}&adultsCount=${adults}&rooms=${rooms}&marker=patasyrutas-premium.FG0U5lLZ`;
+      
+      // Abrir en nueva pestaña
+      window.open(hotellookUrl, '_blank');
+    });
+
+    // Establecer fecha mínima como hoy
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('checkin').min = today;
+    document.getElementById('checkout').min = today;
+
+    // Actualizar fecha mínima de checkout cuando se selecciona checkin
+    document.getElementById('checkin').addEventListener('change', function() {
+      document.getElementById('checkout').min = this.value;
+    });
+  </script>
+
+  <!-- Hotellook Widget Script -->
+  <script>
+  (function(w, d, c) {
+    w.HotellookWidgetOptions = w.HotellookWidgetOptions || [];
+    w.HotellookWidgetOptions.push({
+      marker: 'patasyrutas-premium.FG0U5lLZ',
+      locale: 'es'
+    });
+    var s = d.createElement('script');
+    s.async = true;
+    s.src = 'https://search.hotellook.com/widget.js';
+    var x = d.getElementsByTagName('script')[0];
+    x.parentNode.insertBefore(s, x);
+  })(window, document);
+  </script>
+
+</body>
+</html>
